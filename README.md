@@ -20,13 +20,26 @@ Cubit 是 Bloc 的一种简化形式，专注于管理单一状态的变化，�
 Cubit 可以处理简单的状态写法简单，继承Cubit可以直接使用emit发射状态
 
 Bloc 需要创建 三个dart文件 bloc event state 
-在bloc文件中 on<FetchUser>(_onFetchUser) 用来注册event处理函数
-Emitter<UserState> emit 用来发射state （结合cubit后新的语法糖，和Bloc旧版本的yield类似）
-当调用context.read<UserBloc>().add(FetchUser())时触发在构造函数中注册过的event事件
+在bloc文件中 
+```
+on<FetchUser>(_onFetchUser) 
+```
+用来注册event处理函数
+```
+Emitter<UserState> emit 
+```
+用来发射state （结合cubit后新的语法糖，和Bloc旧版本的yield类似）
+当调用
+```
+context.read<UserBloc>().add(FetchUser())
+```
+时触发在构造函数中注册过的event事件
 
-在Flutter中需要结合flutter_bloc来使用
 
+在Flutter项目中还需需要结合flutter_bloc来使用
 BlocProvider初始化状态管理器
+
+```
 BlocProvider(
     create: (context) => CounterCubit(),
     child: const MyCubitApp(),
@@ -35,11 +48,14 @@ BlocProvider(
     create: (context) => UserBloc()..add(FetchUser()),
     child: const MyBlocApp(),
 )
+```
 
 BlocBuilder 包裹实现局部刷新
+
+```
 BlocBuilder<CounterCubit, CounterState>
 BlocBuilder<UserBloc, UserState>
-
+```
 ## Getting Started
 
 This project is a starting point for a Flutter application.
