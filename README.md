@@ -4,13 +4,15 @@
 
 Bloc（Business Logic Component）和 Cubit（简化的 Bloc）结合使用
 
-Bloc 是一个在 Dart 和 Flutter 中用于管理状态和业务逻辑的库。它基于事件驱动的架构，主要包括以下几个关键组成部分：
+Bloc 是一个在 Dart 和 Flutter 中用于管理状态和业务逻辑的库。   
+它基于事件驱动的架构，主要包括以下几个关键组成部分：
 
 - Bloc：负责接收事件、处理事件并根据事件的结果发出新的状态。
 - Event：触发状态变化的动作或事件。
 - State：表示应用程序在任何时间点的状态。
 
-Cubit 是 Bloc 的一种简化形式，专注于管理单一状态的变化，适用于简单的业务逻辑和 UI 状态管理。它的主要特点包括：
+Cubit 是 Bloc 的一种简化形式，专注于管理单一状态的变化，适用于简单的业务逻辑和 UI 状态管理。   
+它的主要特点包括：
 
 - 更轻量级，用于处理不需要复杂状态管理的场景。
 - 简化的 API，减少了传统 Bloc 中的一些繁琐配置。
@@ -34,7 +36,7 @@ class CounterCubit extends Cubit<CounterState> {
 }
 ```
 
-Bloc 需要创建 三个dart文件 bloc event state 
+Bloc 需要创建 三个dart文件 bloc event state    
 在bloc文件中 
 ```
 on<FetchUser>(_onFetchUser) 
@@ -43,7 +45,7 @@ on<FetchUser>(_onFetchUser)
 ```
 Emitter<UserState> emit 
 ```
-用来发射state （结合cubit后新的语法糖，和Bloc旧版本的yield类似）
+用来发射state（结合cubit后新的语法糖，和Bloc旧版本的yield类似）
 
 当调用
 ```
