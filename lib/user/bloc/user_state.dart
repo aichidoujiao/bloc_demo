@@ -1,4 +1,4 @@
-import 'package:bloc_demo/user.dart';
+import 'package:bloc_demo/user/model/user.dart';
 
 abstract class UserState {}
 

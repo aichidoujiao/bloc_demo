@@ -54,7 +54,6 @@ context.read<UserBloc>().add(FetchUser())
 时触发在构造函数中注册过的event事件
 
 
-在Flutter项目中还需需要结合flutter_bloc来使用
 BlocProvider初始化状态管理器
 
 ```

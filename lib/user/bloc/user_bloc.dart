@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:bloc/bloc.dart';
-import 'package:bloc_demo/user.dart';
-import 'package:bloc_demo/user_event.dart';
-import 'package:bloc_demo/user_state.dart';
+import 'package:bloc_demo/user/model/user.dart';
+import 'package:bloc_demo/user/bloc/user_event.dart';
+import 'package:bloc_demo/user/bloc/user_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
 class UserBloc extends Bloc<UserEvent, UserState> {
