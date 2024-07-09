@@ -13,10 +13,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> _onFetchUser(FetchUser event, Emitter<UserState> emit) async {
     emit(UserLoading());
     try {
-      final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+      final response = await http
+          .get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
       if (response.statusCode == 200) {
         final List<dynamic> jsonData = json.decode(response.body);
-        final List<User> users = jsonData.map((json) => User.fromJson(json)).toList();
+        final List<User> users =
+            jsonData.map((json) => User.fromJson(json)).toList();
         emit(UserLoaded(users));
       } else {
         emit(UserError('Failed to load users'));

@@ -8,7 +8,9 @@ class CounterState {
 
 // 定义事件
 abstract class CounterEvent {}
+
 class IncrementEvent extends CounterEvent {}
+
 class DecrementEvent extends CounterEvent {}
 
 // 定义 Cubit
