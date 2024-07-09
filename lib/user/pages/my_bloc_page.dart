@@ -16,14 +16,13 @@ class MyBlocPage extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                // context.pop();
-                context.go('/');
+                context.pop();
               },
             )),
         body: BlocBuilder<UserBloc, UserState>(
           builder: (context, state) {
             if (state is UserInitial) {
-              return const Center(child: Text('初始化页面'));
+              return const Center(child: Text('加载数据之前'));
             } else if (state is UserLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is UserLoaded) {
@@ -46,7 +45,7 @@ class MyBlocPage extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => context.read<UserBloc>().add(FetchUser()),
-          child: const Icon(Icons.download),
+          child: const Icon(Icons.refresh),
         ),
       ),
     );

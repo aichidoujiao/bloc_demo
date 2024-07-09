@@ -31,7 +31,6 @@ class MyCubitPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       counterCubit.increment();
-                      context.pop();
                     },
                     child: const Text('计数增加'),
                   ),
@@ -47,7 +46,7 @@ class MyCubitPage extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  context.push('/details');
+                  context.push('/MyBlocPage');
                 },
                 child: const Text('Push Bloc Demo'),
               ),

@@ -12,7 +12,7 @@ void main() {
 }
 
 final GoRouter _router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/MyCubitPage',
   routes: [
     GoRoute(
       path: '/MyCubitPage',
@@ -24,7 +24,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/MyBlocPage',
       builder: (context, state) => BlocProvider(
-        create: (context) => UserBloc()..add(FetchUser()),
+        create: (context) => UserBloc(),
         child: const MyBlocPage(),
       ),
     ),
