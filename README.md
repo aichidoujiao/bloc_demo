@@ -18,6 +18,21 @@ Cubit 是 Bloc 的一种简化形式，专注于管理单一状态的变化，�
 ## 用法
 
 Cubit 可以处理简单的状态写法简单，继承Cubit可以直接使用emit发射状态
+```
+// 定义 Cubit
+class CounterCubit extends Cubit<CounterState> {
+    CounterCubit() : super(CounterState(0));
+
+    // 处理事件
+    void increment() {
+        emit(CounterState(state.count + 1));
+    }
+
+    void decrement() {
+        emit(CounterState(state.count - 1));
+    }
+}
+```
 
 Bloc 需要创建 三个dart文件 bloc event state 
 在bloc文件中 
@@ -29,6 +44,7 @@ on<FetchUser>(_onFetchUser)
 Emitter<UserState> emit 
 ```
 用来发射state （结合cubit后新的语法糖，和Bloc旧版本的yield类似）
+
 当调用
 ```
 context.read<UserBloc>().add(FetchUser())
