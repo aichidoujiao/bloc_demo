@@ -11,7 +11,6 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: context.colorScheme.surface0,
       appBar: AppBar(
-        backgroundColor: context.colorScheme.brand6,
         title: Text(
           'Adaptive Theme Demo',
           style: TextStyle(

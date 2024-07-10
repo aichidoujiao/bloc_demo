@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ThemeDark {
-  static final ThemeData themeData = ThemeData(brightness: Brightness.dark);
+  static final ThemeData themeData = ThemeData(
+    brightness: Brightness.dark,
+    appBarTheme: AppBarTheme(
+      backgroundColor: ThemeDark.surface0,
+    ),
+  );
   static Color brand1 = const Color(0xFF1A222B);
   static Color brand2 = const Color(0xFF243344);
   static Color brand3 = const Color(0xFF304459);
@@ -27,4 +32,11 @@ class ThemeDark {
   static Color text5 = const Color(0xFFF0F1F5);
   static Color text6 = const Color(0xFF1A222B);
   static Color text7 = const Color(0x66FFFFFF);
+  static Color error3 = const Color(0xFF461B19);
+  static Color error6 = const Color(0xFFA22822);
+  static Color subGreen6 = const Color(0xFF3EC786);
+  static Color subGreen4 = const Color(0xFF204B2E);
+  static Color subPurple6 = const Color(0xFFA370E0);
+  static Color subGold6 = const Color(0xFFA16F2E);
+  static Color subGold2 = const Color(0xFF342717);
 }

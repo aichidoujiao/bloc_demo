@@ -1,7 +1,5 @@
 import 'package:bloc_demo/theme/custom_theme.dart';
-import 'package:bloc_demo/user/cubit/count_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 ///cubit简单状态处理
@@ -11,9 +9,9 @@ class MyCubitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colorScheme.surface0,
       appBar: AppBar(
         title: const Text('Cubit'),
-        backgroundColor: context.colorScheme.primary,
       ),
       body: Center(
         child: Expanded(
@@ -25,9 +23,9 @@ class MyCubitPage extends StatelessWidget {
                 onPressed: () {
                   context.push('/SettingPage');
                 },
-                child: const Text(
+                child: Text(
                   'Push Setting Page',
-                  style: TextStyle(color: Colors.red),
+                  style: TextStyle(color: context.colorScheme.text1),
                 ),
               ),
               const SizedBox(height: 20),
@@ -36,8 +34,8 @@ class MyCubitPage extends StatelessWidget {
                   context.push('/MyBlocPage');
                 },
                 child: Text(
-                  'Push Setting Page',
-                  style: context.textTheme.labelLarge,
+                  'Push Bloc Page',
+                  style: TextStyle(color: context.colorScheme.text1),
                 ),
               ),
             ],
