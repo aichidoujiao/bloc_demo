@@ -1,3 +1,4 @@
+import 'package:bloc_demo/theme/custom_theme.dart';
 import 'package:bloc_demo/user/cubit/count_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,46 +10,35 @@ class MyCubitPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CounterCubit counterCubit = context.read<CounterCubit>();
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Cubit')),
+      appBar: AppBar(
+        title: const Text('Cubit'),
+        backgroundColor: context.colorScheme.primary,
+      ),
       body: Center(
         child: Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              BlocBuilder<CounterCubit, CounterState>(
-                builder: (context, state) {
-                  return Text('Count: ${state.count}');
+              ElevatedButton(
+                onPressed: () {
+                  context.push('/SettingPage');
                 },
-              ),
-              const SizedBox(height: 50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      counterCubit.increment();
-                    },
-                    child: const Text('计数增加'),
-                  ),
-                  const SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      counterCubit.decrement();
-                    },
-                    child: const Text('计数减少'),
-                  ),
-                ],
+                child: const Text(
+                  'Push Setting Page',
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   context.push('/MyBlocPage');
                 },
-                child: const Text('Push Bloc Demo'),
+                child: Text(
+                  'Push Setting Page',
+                  style: context.textTheme.labelLarge,
+                ),
               ),
             ],
           ),
