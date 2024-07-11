@@ -9,6 +9,10 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    - pubspec.yaml
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -23,6 +27,19 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # 自定义 lint 规则
+#    avoid_relative_lib_imports: true
+#    always_use_package_imports: true #总是使用package引用，避免使用 import '../../../../***'这种
+#    avoid_empty_else: true #避免if else的else内部没有表达式
+#    no_self_assignments: true #不要将变量赋值给其自身
+#    no_logic_in_create_state: true #不要在 createState 中放置任何逻辑。
+#    no_wildcard_variable_uses: true #通配符（_）用来标记无效参数时，不能再当参数使用，有效参数需用单词或缩写来命名
+#    use_build_context_synchronously: true #不要把BuildContext放异步中使用,可以先用context获取为临时变量
+#    always_declare_return_types: true #函数需要声明返回类型
+#    avoid_unnecessary_containers: true #避免使用不必要的Container
+#    use_full_hex_values_for_flutter_colors: true #定义颜色用8位16进制,可以明确标记透明通道
+#    void_checks: true #返回值为void的函数，不要赋值给变量
+#    constant_identifier_names: false #允许常量使用非驼峰命名规则,忽略Color和宏定义等大写字母的非驼峰提示
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

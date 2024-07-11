@@ -9,7 +9,6 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colorScheme.surface0,
       appBar: AppBar(
         title: Text(
           'Adaptive Theme Demo',

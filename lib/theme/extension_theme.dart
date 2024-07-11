@@ -1,6 +1,6 @@
+import 'package:bloc_demo/theme/theme_dark.dart';
+import 'package:bloc_demo/theme/theme_light.dart';
 import 'package:flutter/material.dart';
-import 'theme_dark.dart';
-import 'theme_light.dart';
 
 extension ThemeExtension on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
@@ -34,4 +34,17 @@ extension CustomColorScheme on ColorScheme {
   Color get text5 => isDark ? ThemeDark.text5 : ThemeLight.text5;
   Color get text6 => isDark ? ThemeDark.text6 : ThemeLight.text6;
   Color get text7 => isDark ? ThemeDark.text7 : ThemeLight.text7;
+  Color get line1 => isDark ? ThemeDark.line1 : ThemeLight.line1;
+  Color get line2 => isDark ? ThemeDark.line2 : ThemeLight.line2;
+  Color get line3 => isDark ? ThemeDark.line3 : ThemeLight.line3;
+  Color get error3 => isDark ? ThemeDark.error3 : ThemeLight.error3;
+  Color get error6 => isDark ? ThemeDark.error6 : ThemeLight.error6;
+  Color get subGreen6 => isDark ? ThemeDark.subGreen6 : ThemeLight.subGreen6;
+  Color get subGreen4 => isDark ? ThemeDark.subGreen4 : ThemeLight.subGreen4;
+  Color get subPurple6 => isDark ? ThemeDark.subPurple6 : ThemeLight.subPurple6;
+  Color get subGold6 => isDark ? ThemeDark.subGold6 : ThemeLight.subGold6;
+  Color get subGold2 => isDark ? ThemeDark.subGold2 : ThemeLight.subGold2;
+  Color get black8 => isDark ? ThemeDark.black8 : ThemeLight.black8;
+  Color get black12 => isDark ? ThemeDark.black12 : ThemeLight.black12;
+  Color get black40 => isDark ? ThemeDark.black40 : ThemeLight.black40;
 }

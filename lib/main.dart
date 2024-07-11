@@ -1,13 +1,16 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_demo/setting/setting_page.dart';
+import 'package:bloc_demo/toast/custom_toast.dart';
 import 'package:bloc_demo/user/bloc/user_blocs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
 import 'theme/custom_theme.dart';
 import 'user/pages/my_bloc_page.dart';
 import 'user/pages/my_cubit_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,12 +51,14 @@ class MyApp extends StatelessWidget {
       dark: ThemeDark.themeData,
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp.router(
+        scaffoldMessengerKey: OverlayManager().navigatorKey,
+        builder: FToastBuilder(),
         title: 'Adaptive Theme Demo',
         theme: theme,
         darkTheme: darkTheme,
         routerConfig: _router,
       ),
-      debugShowFloatingThemeButton: true,
+      debugShowFloatingThemeButton: false,
     );
   }
 }
