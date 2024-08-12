@@ -67,7 +67,7 @@ class CustomToast extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                color: context.colorScheme.black12,
+                color: context.colorScheme.black20,
                 spreadRadius: 2,
                 blurRadius: 4,
                 offset: const Offset(0, 1), // changes position of shadow

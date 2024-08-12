@@ -41,6 +41,17 @@ class MyCubitPage extends StatelessWidget {
                   ),
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  context.push('/UiText');
+                },
+                child: Text(
+                  'UiText',
+                  style: TextStyle(
+                    color: context.colorScheme.text1,
+                  ),
+                ),
+              ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {

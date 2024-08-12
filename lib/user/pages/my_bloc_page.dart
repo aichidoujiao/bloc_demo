@@ -1,3 +1,4 @@
+import 'package:bloc_demo/theme/custom_text_theme.dart';
 import 'package:bloc_demo/theme/custom_theme.dart';
 import 'package:bloc_demo/user/bloc/user_blocs.dart';
 import 'package:flutter/material.dart';

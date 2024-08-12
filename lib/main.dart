@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_demo/setting/setting_page.dart';
 import 'package:bloc_demo/toast/custom_toast.dart';
 import 'package:bloc_demo/user/bloc/user_blocs.dart';
+import 'package:bloc_demo/user/pages/ui_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -35,6 +36,10 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/SettingPage',
       builder: (context, state) => const SettingPage(),
+    ),
+    GoRoute(
+      path: '/UiText',
+      builder: (context, state) => const UiText(),
     ),
   ],
 );
