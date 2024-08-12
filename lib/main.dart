@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:bloc_demo/setting/setting_page.dart';
 import 'package:bloc_demo/toast/custom_toast.dart';
@@ -5,6 +7,7 @@ import 'package:bloc_demo/user/bloc/user_blocs.dart';
 import 'package:bloc_demo/user/pages/ui_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,19 +54,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(
-      light: ThemeLight.themeData,
-      dark: ThemeDark.themeData,
-      initial: savedThemeMode ?? AdaptiveThemeMode.light,
-      builder: (theme, darkTheme) => MaterialApp.router(
-        scaffoldMessengerKey: OverlayManager().navigatorKey,
-        builder: FToastBuilder(),
-        title: 'Adaptive Theme Demo',
-        theme: theme,
-        darkTheme: darkTheme,
-        routerConfig: _router,
+    return ScreenUtilInit(
+      designSize: Platform.isIOS ? const Size(375, 812) : ScreenUtil.defaultSize,
+      child: AdaptiveTheme(
+        light: ThemeLight.themeData,
+        dark: ThemeDark.themeData,
+        initial: savedThemeMode ?? AdaptiveThemeMode.light,
+        builder: (theme, darkTheme) => MaterialApp.router(
+          scaffoldMessengerKey: OverlayManager().navigatorKey,
+          builder: FToastBuilder(),
+          title: 'Adaptive Theme Demo',
+          theme: theme,
+          darkTheme: darkTheme,
+          routerConfig: _router,
+        ),
+        debugShowFloatingThemeButton: false,
       ),
-      debugShowFloatingThemeButton: false,
     );
   }
 }
