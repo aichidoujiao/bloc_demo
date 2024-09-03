@@ -7,6 +7,7 @@ import 'package:bloc_demo/user/bloc/user_blocs.dart';
 import 'package:bloc_demo/user/pages/ui_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,10 @@ import 'package:go_router/go_router.dart';
 import 'theme/custom_theme.dart';
 import 'user/pages/my_bloc_page.dart';
 import 'user/pages/my_cubit_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/app_localizations.dart'; // 引用生成的本地化文件
 
+final localeProvider = StateProvider<Locale>((ref) => Locale('en'));
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,13 +64,29 @@ class MyApp extends StatelessWidget {
         light: ThemeLight.themeData,
         dark: ThemeDark.themeData,
         initial: savedThemeMode ?? AdaptiveThemeMode.light,
-        builder: (theme, darkTheme) => MaterialApp.router(
-          scaffoldMessengerKey: OverlayManager().navigatorKey,
-          builder: FToastBuilder(),
-          title: 'Adaptive Theme Demo',
-          theme: theme,
-          darkTheme: darkTheme,
-          routerConfig: _router,
+        builder: (theme, darkTheme) => ProviderScope(
+          child: Consumer(builder: (context, ref, _) {
+            final locale = ref.watch(localeProvider);
+            return MaterialApp.router(
+              scaffoldMessengerKey: OverlayManager().navigatorKey,
+              builder: FToastBuilder(),
+              locale: locale,
+              localizationsDelegates: [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: [
+                Locale('en'),
+                Locale('zh'),
+              ],
+              title: 'Adaptive Theme Demo',
+              theme: theme,
+              darkTheme: darkTheme,
+              routerConfig: _router,
+            );
+          }),
         ),
         debugShowFloatingThemeButton: false,
       ),

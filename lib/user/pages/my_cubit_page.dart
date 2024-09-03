@@ -1,6 +1,9 @@
+import 'package:bloc_demo/generated/app_localizations.dart';
+import 'package:bloc_demo/main.dart';
 import 'package:bloc_demo/theme/custom_theme.dart';
 import 'package:bloc_demo/toast/custom_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 ///cubit简单状态处理
@@ -55,7 +58,7 @@ class MyCubitPage extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  showToast(context,'Show Toast One Line');
+                  showToast(context, 'Show Toast One Line');
                 },
                 child: Text(
                   'Show Toast 1 Line',
@@ -65,17 +68,21 @@ class MyCubitPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  showToast(context,'Show Toast Two Line____________________');
-                },
-                child: Text(
-                  'Show Toast 2 Line',
-                  style: TextStyle(
-                    color: context.colorScheme.text1,
+              Consumer(builder: (context, ref, _) {
+                var localizations = AppLocalizations.of(context)!;
+
+                return ElevatedButton(
+                  onPressed: () {
+                    ref.read(localeProvider.notifier).state = Locale('zh');
+                  },
+                  child: Text(
+                    localizations.aboutDialogDescription('切换下试试吧', '32ro289472'),
+                    style: TextStyle(
+                      color: context.colorScheme.text1,
+                    ),
                   ),
-                ),
-              )
+                );
+              })
             ],
           ),
         ),
