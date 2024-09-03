@@ -5,3 +5,4 @@ preferred-supported-locales:
   - zh
   - en
 use-deferred-loading: true
+output-dir: /lib/generated/
